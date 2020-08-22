@@ -13,7 +13,7 @@ Bundle with your favorite bundler.
 Install for the document:
 
 ```coffeescript
-import navigate from "@dashkite/navigate"
+import {navigate} from "@dashkite/navigate"
 
 navigate document
 ```
