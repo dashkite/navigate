@@ -13,9 +13,10 @@ any = (fx) ->
       return true if f x
     false
 
-# hasLink = (e) ->
-#   for el in (path = e.composedPath())
-#     return true if el.tagName == "A"
+notALink = (e) ->
+  for el in e.composedPath()
+    return false if el.tagName == "A"
+  true
 
 hasKeyModifier = ({altKey, ctrlKey, metaKey, shiftKey}) ->
   metaKey || altKey || ctrlKey || shiftKey
@@ -62,6 +63,7 @@ click = flow [
     hasKeyModifier
     isRightClick
     isAlreadyHandled
+    notALink
   ]
   r.tee intercept
   r.map describe
