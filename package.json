@@ -1,6 +1,6 @@
 {
   "name": "@dashkite/navigate",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Handle navigation events in browser applications and Web Components",
   "main": "build/src/index.js",
   "main:coffee": "src/index.coffee",
