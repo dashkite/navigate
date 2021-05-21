@@ -23,13 +23,11 @@
   },
   "homepage": "https://github.com/dashkite/navigate#readme",
   "dependencies": {
-    "@dashkite/helium": "^0.3.0",
-    "@pandastrike/garden": "^8.0.0-alpha.1",
-    "panda-river": "^6.0.0"
+    "@dashkite/helium": "^0.3.2"
   },
   "devDependencies": {
-    "@dashkite/brick": "^0.2.0",
-    "@dashkite/genie": "0.0.1",
+    "@dashkite/genie": "^0.3.3",
+    "@dashkite/genie-presets": "^0.1.5",
     "coffeescript": "^2.5.1",
     "panda-quill": "^5.0.0"
   }
