@@ -11,6 +11,7 @@ import files from "express-static"
 import * as _ from "@dashkite/joy"
 import * as k from "@dashkite/katana"
 import * as m from "@dashkite/mimic"
+import * as atlas from "@dashkite/atlas"
 
 # module under test
 import * as $ from "../src"
@@ -33,12 +34,17 @@ import * as $ from "../src"
 
 do ->
 
+  reference = await atlas.Reference.create "@dashkite/navigate", "file:."
+  console.log reference.map.toJSON atlas.jsdelivr
   server = express()
     # .use files "/app"
     .get "/", (request, response) ->
       response.send """
           <html>
             <head>
+              <script type='importmap'>
+                #{reference.map.toJSON atlas.jsdelivr}
+              </script>
               <script type="module" src="/application.js"></script>
             </head>
             <body></body>
@@ -47,6 +53,7 @@ do ->
     .get "/application.js", (request, response) ->
       response.sendFile Path.resolve __dirname, "..", "..",
         "import/src/index.js"
+    .use files "."
     .listen()
 
   {port} = server.address()
