@@ -1,6 +1,6 @@
 # Navigate
 
-_Handle navigation events in browser applications and Web Components._
+_Transforms browser navigation events into an async iterable._
 
 ## Install
 
@@ -10,20 +10,20 @@ Bundle with your favorite bundler.
 
 ## Usage
 
-Install for the document:
+Install for `document`:
 
 ```coffeescript
 import {navigate} from "@dashkite/navigate"
 
-navigate document
+do ->
+  for await event from navigate document
+    console.log "Navigated to #{window.location.href}"
 ```
 
-Also, install for any Web Components that will need to handle navigation events. Pass the document fragment fragment to `navigate`.
-
-Navigate assumes you have added a `router` property to the Helium Registry. The returned value must support an Oxygen-compatible interface.
+Or use within any Web Components that will need to handle navigation events. Just pass the document fragment to `navigate`.
 
 ## API
 
 ### _navigate root_
 
-Adds an event listener for click events and determines whether they need to be routed internally to the application. All other links will be opened in a new tab.
+Adds an event listener for link `click` events and determines whether they need to be routed internally or bubbled up to the browser. Produces events for each internal navigation.
