@@ -23,12 +23,12 @@
   },
   "homepage": "https://github.com/dashkite/navigate#readme",
   "dependencies": {
-    "@dashkite/helium": "^0.3.2"
+    "@dashkite/helium": "^0.3.2",
+    "@dashkite/joy": "^0.3.3"
   },
   "devDependencies": {
     "@dashkite/genie": "^0.3.3",
     "@dashkite/genie-presets": "^0.1.5",
-    "coffeescript": "^2.5.1",
-    "panda-quill": "^5.0.0"
+    "coffeescript": "^2.5.1"
   }
 }
