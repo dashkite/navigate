@@ -1,17 +1,10 @@
-import {flow, pipe} from "@pandastrike/garden"
-import Registry from "@dashkite/helium"
-import * as r from "panda-river"
+import * as f from "@dashkite/joy"
+import * as i from "@dashkite/joy/iterable"
+import * as t from "@dashkite/joy/type"
+import * as p from "@dashkite/joy/predicate"
 
 # event helpers, adapted from:
 # https://github.com/vuejs/vue-router/blob/dev/src/components/link.js
-
-isDefined = (x) -> x?
-
-any = (fx) ->
-  (x) ->
-    for f in fx
-      return true if f x
-    false
 
 notALink = (e) ->
   for el in e.composedPath()
@@ -53,33 +46,23 @@ getAlias = ({url}) ->
   else
     {url}
 
-browse = (destination) -> (Registry.get "router").browse destination
-
-dispatch = (url) -> (Registry.get "router").dispatch {url}
-
-click = flow [
-  r.events "click"
-  r.reject any [
-    hasKeyModifier
-    isRightClick
-    isAlreadyHandled
-    notALink
+navigate = f.flow [
+  i.events "click"
+  f.pipe [
+    i.reject p.any [
+      hasKeyModifier
+      isRightClick
+      isAlreadyHandled
+      notALink
+    ]
+    i.tap intercept
+    i.map describe
+    i.select t.isDefined
+    i.reject p.any [
+      isCurrentLocation
+      isCrossOrigin
+    ]
   ]
-  r.tee intercept
-  r.map describe
-  r.select isDefined
-  r.reject any [
-    isCurrentLocation
-    isCrossOrigin
-  ]
-  r.each browse
 ]
-
-navigate = (root) ->
-
-  click root
-
-  if root == document
-    window.addEventListener "popstate", -> dispatch window.location.href
 
 export {navigate}

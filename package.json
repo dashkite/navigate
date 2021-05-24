@@ -2,33 +2,47 @@
   "name": "@dashkite/navigate",
   "version": "0.2.0",
   "description": "Handle navigation events in browser applications and Web Components",
-  "main": "build/src/index.js",
-  "main:coffee": "src/index.coffee",
-  "files": [
-    "build/src",
-    "src"
-  ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "keywords": [],
+  "homepage": "https://github.com/dashkite/navigate#readme",
+  "bugs": {
+    "url": "https://github.com/dashkite/navigate/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dashkite/navigate.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "SEE LICENSE IN LICENSE.md",
-  "bugs": {
-    "url": "https://github.com/dashkite/navigate/issues"
+  "author": "",
+  "exports": {
+    ".": {
+      "import": "./build/import/src/index.js"
+    }
   },
-  "homepage": "https://github.com/dashkite/navigate#readme",
+  "main": "build/src/index.js",
+  "files": [
+    "build/src",
+    "src",
+    "./build/import/src"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "@dashkite/helium": "^0.3.2",
-    "@dashkite/joy": "^0.3.3"
+    "@dashkite/joy": "^0.3.4"
   },
   "devDependencies": {
     "@dashkite/genie": "^0.3.3",
-    "@dashkite/genie-presets": "^0.1.5",
-    "coffeescript": "^2.5.1"
-  }
+    "@dashkite/genie-presets": "^0.1.6",
+    "@dashkite/katana": "^0.4.7",
+    "@dashkite/mimic": "file:../mimic",
+    "amen": "^3.0.0",
+    "coffeescript": "^2.5.1",
+    "express": "^4.17.1",
+    "express-static": "^1.2.6",
+    "fs-monkey": "^1.0.3",
+    "memfs": "^3.2.2",
+    "unionfs": "^4.4.0"
+  },
+  "main:coffee": "src/index.coffee"
 }
