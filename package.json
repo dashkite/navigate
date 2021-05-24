@@ -31,12 +31,12 @@
     "@dashkite/joy": "^0.3.5"
   },
   "devDependencies": {
-    "@dashkite/atlas": "file:../atlas",
+    "@dashkite/atlas": "^0.1.3",
     "@dashkite/genie": "^0.4.0",
-    "@dashkite/genie-presets": "^0.1.6",
+    "@dashkite/genie-presets": "^0.1.7",
     "@dashkite/katana": "^0.4.7",
     "@dashkite/masonry": "^0.10.4",
-    "@dashkite/mimic": "file:../mimic",
+    "@dashkite/mimic": "^0.2.0",
     "amen": "^3.0.0",
     "coffeescript": "^2.5.1",
     "express": "^4.17.1",
