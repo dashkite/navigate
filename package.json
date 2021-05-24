@@ -20,12 +20,10 @@
   },
   "main": "build/src/index.js",
   "files": [
-    "build/src",
-    "src",
-    "./build/import/src"
+    "build/import/src"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "genie test"
   },
   "dependencies": {
     "@dashkite/joy": "^0.3.5"
