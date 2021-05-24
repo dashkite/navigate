@@ -28,13 +28,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@dashkite/joy": "file:../joy"
+    "@dashkite/joy": "^0.3.5"
   },
   "devDependencies": {
     "@dashkite/atlas": "file:../atlas",
-    "@dashkite/genie": "^0.3.3",
+    "@dashkite/genie": "^0.4.0",
     "@dashkite/genie-presets": "^0.1.6",
     "@dashkite/katana": "^0.4.7",
+    "@dashkite/masonry": "^0.10.4",
     "@dashkite/mimic": "file:../mimic",
     "amen": "^3.0.0",
     "coffeescript": "^2.5.1",

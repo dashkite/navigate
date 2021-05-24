@@ -9,39 +9,41 @@ import * as _ from "@dashkite/joy"
 import * as k from "@dashkite/katana"
 import * as m from "@dashkite/mimic"
 import * as atlas from "@dashkite/atlas"
+import {pug} from "@dashkite/masonry/pug"
+import {coffee} from "@dashkite/masonry/coffee"
 
 # module under test
 import * as $ from "../src"
+
+compile = coffee target: "import"
 
 do ->
 
   reference = await atlas.Reference.create "@dashkite/navigate", "file:."
 
   server = express()
-    # .use files "/app"
     .get "/", (request, response) ->
-      response.send """
-          <html>
-            <head>
-              <script type='importmap'>
-                #{reference.map.toJSON atlas.jsdelivr}
-              </script>
-              <script type="module" src="/application.js"></script>
-            </head>
-            <body><a href="#foo">Foo</a></body>
-          </html>
+      response.send pug.render
+        target: "import"
+        input: """
+          html
+            head
+              script(type = "importmap").
+                #{_.collapse reference.map.toJSON atlas.jsdelivr}
+              script(type = "module" src = "/application.js")
+            body
+              a(href = "#foo") Foo
           """
     .get "/application.js", (request, response) ->
       response.set "Content-Type", "application/javascript"
-      response.send """
-        import { navigate } from "@dashkite/navigate"
-        window.navigations = 0;
-        (async function () {
-          for await (let event of await navigate(window)) {
-            window.navigations++;
-          }
-        })()
-        """
+      response.send compile
+        input: """
+          import { navigate } from "@dashkite/navigate"
+          window.navigations = 0
+          do ->
+            for await event from await navigate window
+              window.navigations++
+          """
     .use files "."
     .listen()
 
