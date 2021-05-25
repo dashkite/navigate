@@ -46,22 +46,20 @@ getAlias = ({url}) ->
   else
     {url}
 
-navigate = f.flow [
+navigate = f.pipe [
   i.events "click"
-  f.pipe [
-    i.reject p.any [
-      hasKeyModifier
-      isRightClick
-      isAlreadyHandled
-      notALink
-    ]
-    i.tap intercept
-    i.map describe
-    i.select t.isDefined
-    i.reject p.any [
-      isCurrentLocation
-      isCrossOrigin
-    ]
+  i.reject p.any [
+    hasKeyModifier
+    isRightClick
+    isAlreadyHandled
+    notALink
+  ]
+  i.tap intercept
+  i.map describe
+  i.select t.isDefined
+  i.reject p.any [
+    isCurrentLocation
+    isCrossOrigin
   ]
 ]
 
