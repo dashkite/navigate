@@ -1,6 +1,6 @@
 {
   "name": "@dashkite/navigate",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Handle navigation events in browser applications and Web Components",
   "keywords": [],
   "homepage": "https://github.com/dashkite/navigate#readme",
