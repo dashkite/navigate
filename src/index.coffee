@@ -1,4 +1,4 @@
-import * as f from "@dashkite/joy"
+import * as f from "@dashkite/joy/function"
 import * as i from "@dashkite/joy/iterable"
 import * as t from "@dashkite/joy/type"
 import * as p from "@dashkite/joy/predicate"

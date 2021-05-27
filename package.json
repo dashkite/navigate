@@ -26,25 +26,16 @@
     "test": "genie test"
   },
   "dependencies": {
-    "@dashkite/joy": "^0.3.5"
+    "@dashkite/joy": "^0.3.6"
   },
   "devDependencies": {
-    "@dashkite/amen": "file:../amen",
-    "@dashkite/atlas": "file:../atlas",
-    "@dashkite/genie": "file:../genie",
-    "@dashkite/genie-presets": "^0.1.7",
-    "@dashkite/katana": "^0.4.7",
-    "@dashkite/masonry": "^0.10.4",
-    "@dashkite/mimic": "^0.2.0",
-    "@jspm/generator": "^1.0.0-beta.2",
-    "cheerio": "^1.0.0-rc.9",
-    "coffeescript": "^2.5.1",
-    "esm": "^3.2.25",
-    "express": "^4.17.1",
-    "express-static": "^1.2.6",
-    "fs-monkey": "^1.0.3",
-    "memfs": "^3.2.2",
-    "unionfs": "^4.4.0"
+    "@dashkite/amen": "^0.1.2",
+    "@dashkite/amen-console": "^0.0.1",
+    "@dashkite/genie": "^0.4.1",
+    "@dashkite/genie-presets": "^0.1.12",
+    "@dashkite/masonry": "^0.10.8",
+    "@dashkite/mimic": "^0.2.1",
+    "coffeescript": "^2.5.1"
   },
   "main:coffee": "src/index.coffee"
 }
