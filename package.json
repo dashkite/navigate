@@ -18,7 +18,7 @@
       "import": "./build/import/src/index.js"
     }
   },
-  "main": "build/src/index.js",
+  "main": "./build/import/src/index.js",
   "files": [
     "build/import/src"
   ],
