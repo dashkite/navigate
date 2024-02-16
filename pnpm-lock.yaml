@@ -1,0 +1,58 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  '@dashkite/joy':
+    specifier: ^0.3.16
+    version: 0.3.16
+
+devDependencies:
+  '@dashkite/amen':
+    specifier: ^0.1.2
+    version: 0.1.2
+  '@dashkite/amen-console':
+    specifier: ^0.0.1
+    version: 0.0.1
+  '@dashkite/assert':
+    specifier: ^0.1.4
+    version: 0.1.4
+  '@dashkite/genie':
+    specifier: link:../genie
+    version: link:../genie
+  '@dashkite/genie-coffee':
+    specifier: link:../genie-coffee
+    version: link:../genie-coffee
+  '@dashkite/genie-modules':
+    specifier: link:../genie-modules
+    version: link:../genie-modules
+  coffeescript:
+    specifier: ^2.7.0
+    version: 2.7.0
+
+packages:
+
+  /@dashkite/amen-console@0.0.1:
+    resolution: {integrity: sha512-ZJ0a1vNxqULnXN5e0vCkHVHnmK8XPaUrzGKF77cpCMqnBmO69D/UwzhAmT0lzHXQJ6zXEdTMfExO9LsQt14FiQ==}
+    dev: true
+
+  /@dashkite/amen@0.1.2:
+    resolution: {integrity: sha512-lQwxCo97oKnNrH+mNcF/fTi1WFY+YfOHBD31NDkvcu/R6HOtLQa08agyZBRk5kJrOjHYI8kAdOkjjOWw8LEC5g==}
+    dev: true
+
+  /@dashkite/assert@0.1.4:
+    resolution: {integrity: sha512-OLOzI/lA+EwCh6znSexGAG1V4bkaT5gU04xl6ApEluv5jICnHhinZ707MObu+jhVVJ9uHDDlG85O+Afn1aTQoQ==}
+    dependencies:
+      '@dashkite/joy': 0.3.16
+    dev: true
+
+  /@dashkite/joy@0.3.16:
+    resolution: {integrity: sha512-dsU0us4j1Pb+zceoBvLbnZ2PbmULkJUtM2vtWLxKmoc1DE4w9SVTiPTe6JWvF0A0vk90ldv+Lc9qEA5x3O+DtQ==}
+
+  /coffeescript@2.7.0:
+    resolution: {integrity: sha512-hzWp6TUE2d/jCcN67LrW1eh5b/rSDKQK6oD6VMLlggYVUUFexgTH9z3dNYihzX4RMhze5FTUsUmOXViJKFQR/A==}
+    engines: {node: '>=6'}
+    hasBin: true
+    dev: true

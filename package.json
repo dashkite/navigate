@@ -15,7 +15,7 @@
   "author": "",
   "exports": {
     ".": {
-      "import": "./build/import/src/index.js"
+      "browser": "./build/browser/src/index.js"
     }
   },
   "main": "./build/import/src/index.js",
@@ -26,16 +26,15 @@
     "test": "genie test"
   },
   "dependencies": {
-    "@dashkite/joy": "^0.3.6"
+    "@dashkite/joy": "^0.3.16"
   },
   "devDependencies": {
     "@dashkite/amen": "^0.1.2",
     "@dashkite/amen-console": "^0.0.1",
-    "@dashkite/genie": "^0.4.1",
-    "@dashkite/genie-presets": "^0.1.12",
-    "@dashkite/masonry": "^0.10.8",
-    "@dashkite/mimic": "^0.2.1",
-    "coffeescript": "^2.5.1"
-  },
-  "main:coffee": "src/index.coffee"
+    "@dashkite/assert": "^0.1.4",
+    "@dashkite/genie": "link:../genie",
+    "@dashkite/genie-coffee": "link:../genie-coffee",
+    "@dashkite/genie-modules": "link:../genie-modules",
+    "coffeescript": "^2.7.0"
+  }
 }

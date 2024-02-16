@@ -1,66 +1,51 @@
-import * as f from "@dashkite/joy/function"
-import * as i from "@dashkite/joy/iterable"
-import * as t from "@dashkite/joy/type"
-import * as p from "@dashkite/joy/predicate"
+import * as Fn from "@dashkite/joy/function"
+import * as It from "@dashkite/joy/iterable"
+import * as Type from "@dashkite/joy/type"
+import * as Pred from "@dashkite/joy/predicate"
 
 # event helpers, adapted from:
 # https://github.com/vuejs/vue-router/blob/dev/src/components/link.js
 
-notALink = (e) ->
-  for el in e.composedPath()
-    return false if el.tagName == "A"
-  true
+getLink = ( event ) ->
+  link = undefined
+  elements = event.composedPath()
+  for element in elements
+    if element.matches "[href]"
+      link = element
+      break
+    if element.target == event.target
+      break
+  link
 
-hasKeyModifier = ({altKey, ctrlKey, metaKey, shiftKey}) ->
+hasLink = ( event ) -> ( getLink event )?
+
+hasKeyModifier = ({ altKey, ctrlKey, metaKey, shiftKey }) ->
   metaKey || altKey || ctrlKey || shiftKey
 
-isRightClick = (e) -> e.button? && e.button != 0
+isRightClick = ( event ) -> event.button? && event.button != 0
 
-isAlreadyHandled = (e) -> e.defaultPrevented
+isAlreadyHandled = ( event ) -> event.defaultPrevented
 
-intercept = (event) ->
+intercept = ( event ) ->
   event.preventDefault()
   event.stopPropagation()
 
-# extract the element href if it has one
-describe = (e) ->
-  for el in e.composedPath()
-    if el.tagName == "A"
-      return url: el.href
+toURL = ( event ) -> new URL getLink event
 
-isCurrentLocation = ({url}) -> window.location.href == url
+isCurrentLocation = ( url ) -> window.location.href == url.href
 
-origin = (url) -> (new URL url).origin
-
-isCrossOrigin = ({url}) ->
-  if window.location.origin != origin url
-    # For non-local URLs, open the link in a new tab.
-    window.open url
-    true
-  else
-    false
-
-getAlias = ({url}) ->
-  if (match = getAliasKey url)? && (alias = aliases[match.key])?
-    url: alias
-  else
-    {url}
-
-navigate = f.pipe [
-  i.events "click"
-  i.reject p.any [
+navigate = Fn.pipe [
+  It.events "click"
+  It.select hasLink
+  It.reject Pred.any [
     hasKeyModifier
     isRightClick
     isAlreadyHandled
-    notALink
   ]
-  i.tap intercept
-  i.map describe
-  i.select t.isDefined
-  i.reject p.any [
-    isCurrentLocation
-    isCrossOrigin
-  ]
+  It.tap intercept
+  It.map toURL
+  It.select Type.isDefined
+  It.reject isCurrentLocation
 ]
 
 export {navigate}
