@@ -26,6 +26,7 @@
     "test": "genie test"
   },
   "dependencies": {
+    "@dashkite/genie-module": "link:../genie-module",
     "@dashkite/joy": "^0.3.16"
   },
   "devDependencies": {
