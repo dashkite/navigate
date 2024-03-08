@@ -10,7 +10,7 @@ getLink = ( event ) ->
   link = undefined
   elements = event.composedPath()
   for element in elements
-    if element.matches "[href]"
+    if element.matches? "[href]"
       link = element
       break
     if element.target == event.target
