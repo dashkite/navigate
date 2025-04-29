@@ -33,6 +33,9 @@ importers:
       '@dashkite/genie-module':
         specifier: link:../genie-module
         version: link:../genie-module
+      '@dashkite/vista':
+        specifier: link:../vista
+        version: link:../vista
       coffeescript:
         specifier: ^2.7.0
         version: 2.7.0
