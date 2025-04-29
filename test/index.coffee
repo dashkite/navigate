@@ -16,8 +16,6 @@ do ->
 
   process.exit if success then 0 else 1
 
-# TODO this would go into a client test file
-# we would need to generate import maps
 
 # window.navigations = 0
 
