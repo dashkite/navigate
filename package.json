@@ -24,7 +24,8 @@
   ],
   "scripts": {
     "build": "genie build",
-    "test": "genie test"
+    "test": "genie test",
+    "release": "genie release"
   },
   "dependencies": {
     "@dashkite/joy": "^0.3.16"
