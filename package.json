@@ -20,7 +20,9 @@
   },
   "main": "./build/import/src/index.js",
   "files": [
-    "build/import/src"
+    "build/import/src",
+    "build/browser/src",
+    "build/node/src"
   ],
   "scripts": {
     "build": "genie build",
